@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+
+body {
+  background-image: url('/src/img/pexels-travis-blessing-1363876.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.App {
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 98vh;
+}
+
+.length {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.length-control {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 10px;
+}
+
+#break-label, #session-label {
+  grid-column: span 3;
+  background-color: transparent;
+  color: #fff;
+  width: 210px;
+  border: 2px solid #fff;
+  padding: 10px 20px;
+  font-size: 25px;
+  font-weight: 600;
+  border-radius: 50px;
+}
+
+#break-length, #session-length {
+  color: #fff;
+  font-size: 33px;
+}
+
+.operator {
+  background-color: #fff;
+  color: #444;
+  font-size: 25px;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.timer, .timer-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.session {
+  background-color: transparent;
+  color: #fff;
+  padding: 5px 20px;
+  width: 250px;
+  text-align: center;
+  font-size: 45px;
+  font-weight: 600;
+  border-radius: 50px;
+  border: 2px solid #fff;
+}
+
+.break {
+  background-color: transparent;
+  color: #efef8d;
+  padding: 5px 20px;
+  width: 250px;
+  text-align: center;
+  font-size: 45px;
+  font-weight: 600;
+  border-radius: 50px;
+  border: 2px solid #efef8d;
+}
+
+.session-time {
+  color: #fff;
+  font-size: 250px;
+  font-weight: 600;
+}
+
+.break-time {
+  color: #efef8d;
+  font-size: 250px;
+  font-weight: 600;
+}
+
+.is-ending {
+  color: #efef8d;
+}
+
+.session-ending {
+  color: #efef8d;
+  border-color: #efef8d;
+}
+
+.timer-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#start_stop {
+  background-color: #fff;
+  color: #444;
+  border: none;
+  width: 106px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 25px;
+  font-weight: 600;
+  margin-right: 20px;
+  letter-spacing: 1.8px;
+  cursor: pointer;
+}
+
+#reset {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+
+@media (max-width: 600px) {
+  .App {
+    height: 100lvh;
+    display: flex;
+    /* justify-content: space-around; */
+  }
+
+  #time-left {
+    font-size: 130px;
+  }
+
+  .timer-wrapper {
+    flex-direction: column-reverse;
+    margin-bottom: 10px;
+    margin-top: -20px;
+  }
+
+  .length {
+    gap: 30px;
+    flex-direction: column;
+  }
+}
