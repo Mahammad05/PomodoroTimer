@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 
 function App() {
-
-  const [breakLength, setBreakLength] = useState(1);
+  const [breakLength, setBreakLength] = useState(5);
   const [sessionLength, setSessionLength] = useState(25);
   const [minute, setMinute] = useState(25);
   const [second, setSecond] = useState(0);
@@ -28,21 +27,32 @@ function App() {
           }
           setSecond(0);
           setIsSession(!isSession);
-        };
-
+        }
 
         if (isWorking && isSession && minute === 0 && second <= 30) {
           setIsEnding(!isEnding);
-        }
-        else {
+        } else {
           setIsEnding(false);
+        }
+
+        if (minute === 0 && second === 6) {
+            const alarm = document.getElementById("alarm");
+            alarm.play();
         }
 
       }, 1000);
     }
 
     return () => clearInterval(timer);
-  }, [isWorking, isSession, minute, second, breakLength, sessionLength, isEnding]);
+  }, [
+    isWorking,
+    isSession,
+    minute,
+    second,
+    breakLength,
+    sessionLength,
+    isEnding,
+  ]);
 
   const startStop = () => {
     setIsWorking(!isWorking);
@@ -109,6 +119,7 @@ function App() {
     setMinute(25);
     setIsSession(true);
     setIsWorking(false);
+    setIsEnding(false);
   };
 
   return (
@@ -158,13 +169,17 @@ function App() {
       <div className="timer">
         <div className="timer-wrapper">
           <div
-            className={`${isSession ? "session" : "break"} ${isEnding ? 'session-ending' : ''}`}
+            className={`${isSession ? "session" : "break"} ${
+              isEnding ? "session-ending" : ""
+            }`}
             id="timer-label"
           >
             {isSession ? "Session" : "Break"}
           </div>
           <div
-            className={`${isSession ? "session-time" : "break-time"} ${isEnding ? 'is-ending' : ''}`}
+            className={`${isSession ? "session-time" : "break-time"} ${
+              isEnding ? "is-ending" : ""
+            }`}
             id="time-left"
           >{`${minute.toString().padStart(2, "0")}:${second
             .toString()
@@ -179,6 +194,10 @@ function App() {
           </button>
         </div>
       </div>
+      <audio
+        id="alarm"
+        src={process.env.PUBLIC_URL + '/sound/beep.mp3'} type="audio/mp3"
+      ></audio>
     </div>
   );
 }

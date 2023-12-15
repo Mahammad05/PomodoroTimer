@@ -2,7 +2,7 @@
 
 
 body {
-  background-image: url('/src/img/pexels-travis-blessing-1363876.jpg');
+  background-image: url('/src/img/wallpaperflare.com_wallpaper.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -93,13 +93,13 @@ body {
 
 .session-time {
   color: #fff;
-  font-size: 250px;
+  font-size: 260px;
   font-weight: 600;
 }
 
 .break-time {
   color: #efef8d;
-  font-size: 250px;
+  font-size: 260px;
   font-weight: 600;
 }
 
@@ -140,6 +140,13 @@ body {
   cursor: pointer;
 }
 
+button:active {
+  background-color: #ddd;
+}
+
+#start_stop:active {
+  background-color: #ddd;
+}
 
 @media (max-width: 600px) {
   .App {
